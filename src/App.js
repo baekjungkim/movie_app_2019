@@ -17,7 +17,20 @@ class App extends Component {
     }));
   };
 
+  componentDidMount() {
+    console.log("I did Mount");
+  }
+
+  componentDidUpdate() {
+    console.log("I Just Update");
+  }
+
+  componentWillUnmount() {
+    console.log("Goodbye, cruel world");
+  }
+
   render() {
+    console.log("render");
     const { count } = this.state;
     return (
       <div>
