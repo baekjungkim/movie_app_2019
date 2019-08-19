@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Movies from "./Movies";
+import Movie from "./Movie";
 import "./css/App.css";
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
         data: { movies }
       }
     } = await axios.get(
-      "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
+      "https://yts-proxy.now.sh/list_movies.json?sort_by=download_count"
     );
 
     this.setState({ movies, isLoading: false });
@@ -35,7 +35,7 @@ class App extends Component {
         ) : (
           <div className="movies">
             {movies.map(movie => (
-              <Movies
+              <Movie
                 key={movie.id}
                 year={movie.year}
                 title={movie.title}
